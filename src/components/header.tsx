@@ -52,11 +52,8 @@ export const Header: React.FC = () => {
 
 const HeaderLogo: React.FC = () => (
     <Link href="/" className="justify-center items-center flex">
-        <div className="hidden sm:block">
-            <Logo />
-        </div>
-        <div className="block sm:hidden">
-            <MobileLogo />
+        <div className="font-bold text-3xl">
+            Wallet
         </div>
     </Link>
 );

@@ -1,6 +1,5 @@
 "use client";
 
-import { SecuredByCrossmint } from "@/components/secured-by-crossmint";
 import { Skeleton } from "@/components/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
 import { Typography } from "@/components/typography";
@@ -55,7 +54,6 @@ const SkeletonLoader = () => {
                     </div>
                 </div>
             </div>
-            <SecuredByCrossmint className="pt-6" />
         </div>
     );
 };
@@ -126,7 +124,6 @@ export default function Index() {
                     </TabsContent>
                 </Tabs>
             </div>
-            <SecuredByCrossmint className="pt-6" />
         </div>
     );
 }

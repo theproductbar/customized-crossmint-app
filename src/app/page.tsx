@@ -2,7 +2,6 @@
 
 import { Fireworks } from "@/components/fireworks";
 import { MintNFTButton } from "@/components/mint-nft-button";
-import { SecuredByCrossmint } from "@/components/secured-by-crossmint";
 import { SignInAuthButton } from "@/components/signin-auth-button";
 import { Typography } from "@/components/typography";
 import Link from "next/link";
@@ -52,7 +51,7 @@ export default function Home() {
             }}
             variant={"h1"}
           >
-            Wallet Demo
+            LagunnaGames
           </Typography>
           <Typography className="text-primary-foreground text-center">
             Create a wallet and mint a token, just using Face ID. No passphrase,
@@ -69,16 +68,14 @@ export default function Home() {
             />
             <div className="py-4">
               <Typography className="text-secondary-foreground" variant="h3">
-                Wallet Pioneer
+                Letterpress Pebble
               </Typography>
               <Typography className="text-muted-foreground" variant="h5">
-                by Crossmint
+                by Crypto Angel
               </Typography>
             </div>
           </div>
-          hello
           <HomePrimaryAction />
-          {/* <SecuredByCrossmint /> */}
         </div>
       </div>
     </div>
