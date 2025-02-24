@@ -3,11 +3,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Crossmint/crossmint-sdk">
-    <img src="https://github.com/user-attachments/assets/573d5995-831f-4e27-ab9e-9ab346c9c680" alt="Logo" width="80" height="80">
-  </a>
 
-<h3 align="center">Smart Wallets Demo (Next.js Starter Kit)</h3>
+<h3 align="center">Customized CrossMint Wallet</h3>
 
   <p align="center">
   This application demonstrates the use of Abstract Accounts with a built-in passkey authenticator. Simply sign in with Google or Crossmint's built-in SSO login, authorize your passkey, and create your smart wallet in seconds.
@@ -56,14 +53,6 @@
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
-
-## About The Project
-
-![Smart Wallets Demo (Next.js Starter Kit) Screenshot](https://github.com/user-attachments/assets/5248334a-bc8b-4906-a8ef-f83e3041fed6)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Built With
 
 -   [![Next.js](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
@@ -92,7 +81,7 @@ Before you begin, ensure you have the following installed:
 
 2. Clone the repo
     ```sh
-    git clone https://github.com/Crossmint/crossmint-sdk.git
+    git clone git repo
     ```
 3. Install PNPM packages
     ```sh
@@ -110,72 +99,3 @@ Before you begin, ensure you have the following installed:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Spin up your own instance of the Smart Wallets Demo in under 5 minutes! Below, you'll see how to add the provider and use the hook to integrate authentication into your application.
-
-### Adding the Provider
-
-First, wrap your application with the `CrossmintProvider` and `CrossmintAuthProvider` to provide authentication context to your components. This is typically done in the root of your app.
-
-```tsx
-"use client";
-
-// Important: this ensures the client SDK only runs on the client
-
-import { CrossmintProvider, CrossmintAuthProvider } from "@crossmint/client-sdk-react-ui";
-
-export default function App({ Component, pageProps }) {
-    return (
-        <CrossmintProvider apiKey={process.env.NEXT_PUBLIC_CROSSMINT_AUTH_SMART_WALLET_API_KEY ?? ""}>
-            <CrossmintAuthProvider
-                embeddedWallets={{
-                    createOnLogin: "all-users",
-                    defaultChain: "polygon-amoy",
-                    type: "evm-smart-wallet",
-                }}
-            >
-                <Component {...pageProps} />
-            </CrossmintAuthProvider>
-        </CrossmintProvider>
-    );
-}
-```
-
-### Hooks
-
-Next, add the `useAuth` hooks in your component to access authentication functionality.
-
-```tsx
-import { useAuth } from "@crossmint/client-sdk-react-ui";
-
-export default function Home() {
-    const { login, logout, jwt } = useAuth();
-
-    return <div>{jwt != null ? <button onClick={logout}>Log out</button> : <button onClick={login}>Log in</button>}</div>;
-}
-```
-
-_For additional information, please refer to the [Quickstart Documentation](https://docs.crossmint.com/wallets/smart-wallets/quickstart)._
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ## Process for Updating and Deploying the Next.js Demo -->
-
-## Process for Updating and Deploying the Next.js Demo
-
-When we release a new version of `@crossmint/client-sdk-react-ui`, we need to update the package in the demo app and deploy it. Here's the process for doing that:
-
-### Instructions
-
-1. Ensure your local `main` branch is up-to-date
-2. Checkout a branch from `main` ie. `git checkout -b smart-wallet-demo-sdk-v1.2.3`
-3. Update the version of `@crossmint/client-sdk-react-ui` to the latest on npm. (Package link: [npmjs.com/package/@crossmint/client-sdk-react-ui](https://www.npmjs.com/package/@crossmint/client-sdk-react-ui))
-4. Commit the changes and push branch ie. `smart-wallet-demo-sdk-v1.2.3`
-5. Open a PR from `smart-wallet-demo-sdk-v1.2.3` against `smart-wallet-auth-demo-prod`
-6. After merging branch into `smart-wallet-auth-demo-prod`, Vercel will then deploy the changes to production
-7. Demo will be live on [https://www.smarterwallet.dev/](https://www.smarterwallet.dev/)!
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
