@@ -64,7 +64,7 @@ const AvatarFallback = React.forwardRef<
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName; // Setting displayName for better debugging (React component name)
 
 /**
- * Exporting the three avatar components (Avatar, AvatarImage, AvatarFallback) 
+ * Exporting the three avatar components (Avatar, AvatarImage, AvatarFallback)
  * so that they can be used elsewhere in the app.
  */
 export { Avatar, AvatarImage, AvatarFallback };

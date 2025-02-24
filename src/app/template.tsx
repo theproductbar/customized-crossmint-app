@@ -6,17 +6,17 @@ import { Toaster } from "@/components/toaster"; // Custom Toaster component (use
 import type { ReactNode } from "react"; // Importing type for ReactNode to type the 'children' prop
 
 // Importing Providers from a local library to wrap the app in necessary contexts or providers
-import { Providers } from "./_lib/providers"; 
+import { Providers } from "./_lib/providers";
 
 /**
  * Template component that wraps the application layout.
  * It is used as a workaround to force a re-render of components during navigation.
  * This issue arises when combining Server Components, Client Providers, and Tailwind CSS.
  * The workaround ensures that components re-render properly, avoiding server hangs.
- * 
- * For more details on the issue, refer to the GitHub discussion: 
+ *
+ * For more details on the issue, refer to the GitHub discussion:
  * https://github.com/vercel/next.js/issues/69682
- * 
+ *
  * This component receives children as a prop and renders them inside the layout.
  */
 export default function Template({ children }: { children: ReactNode }) {

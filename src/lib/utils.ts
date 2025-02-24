@@ -13,6 +13,6 @@ import { twMerge } from "tailwind-merge"; // Importing twMerge function to handl
  *          are resolved correctly.
  */
 export function cn(...inputs: ClassValue[]) {
-    // Use clsx to combine class names and twMerge to handle any Tailwind CSS conflicts
-    return twMerge(clsx(inputs));
+  // Use clsx to combine class names and twMerge to handle any Tailwind CSS conflicts
+  return twMerge(clsx(inputs));
 }
