@@ -35,10 +35,6 @@ export default async function RootLayout({
       // Add font variables so they'll be available for Tailwind CSS
       className={cn(inter.variable, raleway.variable)}
     >
-      <head>
-        {/* Ensure metadata title is properly rendered with a fallback */}
-        <title>{metadata.title ?? "Default Title"}</title>
-      </head>
       <body className="bg-background font-body text-foreground min-h-screen antialiased">
         <main id="main">{children}</main>
       </body>
