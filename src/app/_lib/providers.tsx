@@ -20,9 +20,9 @@ export function Providers({ children }: { children: ReactNode }) {
       >
         <CrossmintAuthProvider
           embeddedWallets={{
-            createOnLogin: "all-users",
-            type: "evm-smart-wallet",
-            defaultChain: "polygon-amoy",
+            createOnLogin: "all-users", // Ensures wallet creation on login
+            type: "evm-smart-wallet", // Uses EVM smart wallet
+            defaultChain: "polygon-amoy", // Default blockchain
           }}
           appearance={{
             borderRadius: "16px",
@@ -37,7 +37,7 @@ export function Providers({ children }: { children: ReactNode }) {
               accent: "#602C1B",
             },
           }}
-          loginMethods={["google", "email"]}
+          loginMethods={["email", "google"]} // Only email and Google login allowed
         >
           {children}
         </CrossmintAuthProvider>
