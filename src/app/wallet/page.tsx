@@ -86,9 +86,8 @@ export default function Index() {
           </Typography>
         </div>
         <Tabs defaultValue="collectibles" className="my-2">
-          <TabsList className="grid w-full grid-cols-2">
+          <TabsList className="grid w-full">
             <TabsTrigger value="collectibles">Collectibles</TabsTrigger>
-            <TabsTrigger value="tokens">Tokens</TabsTrigger>
           </TabsList>
           <TabsContent
             value="collectibles"
@@ -122,11 +121,6 @@ export default function Index() {
                 ))}
               </div>
             )}
-          </TabsContent>
-          <TabsContent value="tokens" className="h-[420px] overflow-y-auto">
-            <Typography className="text-base text-primary-foreground p-4">
-              {"You have no tokens."}
-            </Typography>
           </TabsContent>
         </Tabs>
       </div>

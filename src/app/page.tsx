@@ -19,10 +19,7 @@ function HomePrimaryAction() {
   // If wallet is not loaded (user not signed in), show the sign-in button
   if (walletStatus !== "loaded") {
     return <SignInAuthButton />; // Button for signing in with a wallet
-  }
-
-  // If NFT is minted, display fireworks and a link to open the wallet
-  if (nftSuccessfullyMinted) {
+  } else {
     return (
       <>
         <Fireworks /> {/* Custom fireworks animation upon successful mint */}
@@ -31,15 +28,10 @@ function HomePrimaryAction() {
             href="/wallet" // Link to navigate to the wallet page
             className="underline text-secondary-foreground text-lg font-semibold underline-offset-4"
           >
-            Open in my wallet
+            Collections
           </Link>
         </div>
       </>
-    );
-  } else {
-    // If NFT is not yet minted, show the Mint NFT button
-    return (
-      <MintNFTButton setNftSuccessfullyMinted={setNftSuccessfullyMinted} /> // Button for minting the NFT
     );
   }
 }
