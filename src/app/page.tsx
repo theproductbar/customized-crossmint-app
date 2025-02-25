@@ -10,6 +10,7 @@ import { useState } from "react"; // React hook for managing state
 
 // Importing useWallet hook from the Crossmint SDK for wallet management
 import { useWallet } from "@crossmint/client-sdk-react-ui";
+import { Button } from "@/components/button";
 
 // Main component for handling the primary action (minting NFT or signing in)
 function HomePrimaryAction() {
@@ -21,17 +22,15 @@ function HomePrimaryAction() {
     return <SignInAuthButton />; // Button for signing in with a wallet
   } else {
     return (
-      <>
-        <Fireworks /> {/* Custom fireworks animation upon successful mint */}
-        <div className="flex gap-2 items-center self-center min-h-[52px]">
-          <Link
-            href="/wallet" // Link to navigate to the wallet page
-            className="underline text-secondary-foreground text-lg font-semibold underline-offset-4"
-          >
+      <Button
+        className="bg-card gap-[10px] shadow-light rounded-xl py-3" // Styling for the button
+      >
+        <Link href="/wallet">
+          <Typography className="text-[#00150D] font-semibold text-[17px]">
             Collections
-          </Link>
-        </div>
-      </>
+          </Typography>
+        </Link>
+      </Button>
     );
   }
 }
