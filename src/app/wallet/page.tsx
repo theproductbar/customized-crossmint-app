@@ -27,15 +27,7 @@ const SkeletonLoader = () => {
   return (
     <div className="p-6 flex h-full w-full items-center  gap-6 justify-center flex-col">
       <div className="w-full flex-col sm:max-w-[418px] bg-card rounded-2xl shadow-dropdown min-h-[560px] p-6">
-        <div className="h-24 rounded-lg border border-border flex flex-col gap-4 items-center justify-center">
-          <Skeleton className="h-4 w-32" />
-          <Skeleton className="h-4 w-16" />
-        </div>
-        <div className="flex p-8 justify-between">
-          <Skeleton className="h-4 w-32" />
-          <Skeleton className="h-4 w-32" />
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-x-4 gap-y-8 pb-6">
+               <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-x-4 gap-y-8 pb-6">
           <div className="w-full sm:w-auto flex flex-col gap-4">
             <Skeleton className="w-full h-40 sm:w-40 rounded-[10px]" />
             <Skeleton className="h-4 w-24" />
@@ -77,15 +69,7 @@ export default function Index() {
   return (
     <div className="p-6 flex h-full w-full items-center pt-6 gap-6 justify-center flex-col">
       <div className="w-full flex-col sm:max-w-[418px] bg-card rounded-2xl shadow-dropdown min-h-[664px] p-6">
-        <div className="h-24 rounded-lg border border-border flex flex-col gap-1 items-center justify-center">
-          <Typography className="text-secondary-foreground" variant="h3">
-            Wallet Pioneer
-          </Typography>
-          <Typography className="text-muted" variant="h3">
-            $0.00
-          </Typography>
-        </div>
-        <Tabs defaultValue="collectibles" className="my-2">
+            <Tabs defaultValue="collectibles" className="my-2">
           <TabsList className="grid w-full">
             <TabsTrigger value="collectibles">Collectibles</TabsTrigger>
           </TabsList>
