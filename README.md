@@ -62,67 +62,81 @@ Before you begin, ensure you have the following installed:
 
 ```plaintext
 customized-crossmint-app/
-├── .next/                     # Automatically generated files for Next.js
-├── node_modules/              # Project dependencies
-├── public/                    # Static files served directly (Images used in the application)
-│   └── fireworks.gif          # Fireworks animation image
-│   └── emoji-nft.gif          # nft image
+├── .next/                       # Automatically generated files for Next.js
+├── node_modules/                # Project dependencies
+├── public/                      # Static files served directly
+│   ├── fireworks.gif            # Fireworks animation image
+│   └── emoji-nft.gif            # NFT image
 ├── src/
-│   ├── app/                   # Main application files
-│   │   ├── providers.tsx      # Context providers for state management
-│   ├── components/            # Reusable UI components
-│   │   ├── avatar.tsx         # Avatar component for user profiles
-│   │   ├── button.tsx         # General button component
-│   │   ├── dropdown-menu.tsx   # Dropdown menu component
-│   │   ├── firework.tsx       # Fireworks animation component
-│   │   ├── page.tsx           # Main page component
+│   ├── app/                     # Main application files
+│   │   ├── _lib/                # Library files for application logic
+│   │   │   └── providers.tsx     # Context providers for state management
+│   │   ├── wallet/              # Wallet-related components
+│   │   │   └── page.tsx         # Main wallet page component
+│   │   ├── favicon.ico          # Favicon for the application
+│   │   ├── globals.css          # Global styles for the application
+│   │   ├── layout.tsx           # Layout component for consistent page structure
+│   │   ├── page.tsx             # Main entry point for the application
+│   │   └── template.tsx         # Template component for dynamic pages
+│   ├── components/              # Reusable UI components
+│   │   ├── avatar.tsx           # Avatar component for user profiles
+│   │   ├── button.tsx           # General button component
+│   │   ├── dropdown-menu.tsx     # Dropdown menu component
+│   │   ├── firework.tsx         # Fireworks animation component
+│   │   ├── header.tsx           # Header component for navigation
 │   │   ├── sign-in-auth-button.tsx # Sign-in button for authentication
-│   │   ├── skeleton.tsx       # Skeleton loader component
-│   │   ├── tabs.tsx           # Tabbed navigation component
-│   │   ├── toast.tsx          # Toast notifications component
-│   │   ├── typography.tsx     # Typography styles and components
-│   │   ├── use-toast.ts       # Custom hook for toast notifications
-│   │   ├── spinner.tsx        # Spinner/loading component
-│   │   └── icon/              # Icons used in the application
-│   │       └── crossmint-leaf.tsx # Custom icon for the project
-│   ├── icons/                   # Main application files
-│   │   ├── providers.tsx      # Context providers for state management
-│   ├── lib/                   # Main application files
-│   │   ├── providers.tsx      # Context providers for state management
-│   ├── utils/                   # Main application files
-│   │   ├── providers.tsx      # Context providers for state management
-│   │   └── icon/              # Icons used in the application
-│   ├── .env.example           # Example environment variables file
-│   ├── .gitignore             # Files and directories to ignore
-│   ├── CHANGELOG.md           # Changelog for tracking changes
-│   ├── next-env.d.ts              # TypeScript definitions for Next.js
-│   ├── next.config.mjs            # Configuration file for Next.js
-│   ├── package-lock.json          # Lock file for npm dependencies
-│   ├── package.json               # Project dependencies and scripts
-│   ├── postcss.config.mjs         # Configuration for PostCSS
-│   ├── README.md                  # Project documentation
-│   ├── tailwind.config.ts         # Configuration for Tailwind CSS
-│   └── tsconfig.json              # TypeScript configuration file
+│   │   ├── skeleton.tsx         # Skeleton loader component for loading states
+│   │   ├── tabs.tsx             # Tabbed navigation component
+│   │   ├── toast.tsx            # Toast notifications component
+│   │   ├── toaster.tsx          # Toaster notifications for alerts
+│   │   ├── typography.tsx       # Typography styles and components
+│   │   └── use-toast.ts         # Custom hook for managing toast notifications
+│   ├── icons/                   # Icon components
+│   │   ├── logo.tsx             # Logo component
+│   │   └── logout.tsx           # Logout icon component
+│   ├── lib/                     # Library functions and utilities
+│   │   └── utils.tsx            # Utility functions for the application
+│   ├── .env.example             # Example environment variables file
+│   ├── .gitignore               # Files and directories to ignore in version control
+│   ├── CHANGELOG.md             # Changelog for tracking changes
+│   ├── next-env.d.ts            # TypeScript definitions for Next.js
+│   ├── next.config.mjs          # Configuration file for Next.js
+│   ├── package-lock.json        # Lock file for npm dependencies
+│   ├── package.json             # Project dependencies and scripts
+│   ├── postcss.config.mjs       # Configuration for PostCSS
+│   ├── README.md                # Project documentation
+│   ├── tailwind.config.ts       # Configuration for Tailwind CSS
+│   └── tsconfig.json            # TypeScript configuration file
+```
 
 ## Explain about your point
 
 - Send me the instructions how can I change the code. Simple stuff like background color, logo image, which file I need to change on GitHub.
 
-  - background color
+  - background color(https://prnt.sc/_J2nsWU5TNaj)
 
-  - logo image
+  - logo image (https://prnt.sc/M9EwKM9LX2WR)
 
 - Send me the instructions how can I build and push the code to Vercel so I can learn 😉
+
 ```
 
 you can just push code on github after you change any code. Please check readme.md
 
 ```
+
 - Send me the instructions how can I set up the crossmint production (API key, etc..)
-```
 
+```
 Sure, Please check readme.md
+https://prnt.sc/BmQBPDSReDOB
 
 ```
 
-```
+## Contributing
+
+If you'd like to contribute to this project, please fork the repository and create a pull request.
+
+## License
+
+This project is licensed under the MIT License.

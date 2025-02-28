@@ -13,7 +13,6 @@ import { Button } from "@/components/button";
 // Main component for handling the primary action (minting NFT or signing in)
 function HomePrimaryAction() {
   const { status: walletStatus } = useWallet(); // Destructuring wallet status from the useWallet hook
-  const [nftSuccessfullyMinted, setNftSuccessfullyMinted] = useState(false); // State to track if NFT has been minted successfully
 
   // If wallet is not loaded (user not signed in), show the sign-in button
   if (walletStatus !== "loaded") {
