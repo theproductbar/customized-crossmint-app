@@ -1,8 +1,6 @@
 "use client"; // This directive tells Next.js that this file is for client-side rendering
 
 // Importing components and hooks from other files or libraries
-import { Fireworks } from "@/components/fireworks"; // Custom fireworks component
-import { MintNFTButton } from "@/components/mint-nft-button"; // Button to mint NFT
 import { SignInAuthButton } from "@/components/signin-auth-button"; // Button for signing in with authentication
 import { Typography } from "@/components/typography"; // Custom typography component
 import Link from "next/link"; // Next.js Link component for navigation
