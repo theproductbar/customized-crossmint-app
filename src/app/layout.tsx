@@ -6,8 +6,8 @@ import "./globals.css";
 
 // Metadata for the application
 export const metadata: Metadata = {
-  title: "Crossmint Smart Wallet Nextjs Demo",
-  description: "Crossmint Smart Wallet Nextjs Demo",
+  title: "Tekora Wallet",
+  description: "The Tekora Wallet is your exclusive hub for rare Tekora digital collectibles, giving you access to limited-edition NFTs, exclusive rewards, and in-game perks.",
 };
 
 // Load Inter font with custom settings
@@ -35,7 +35,7 @@ export default async function RootLayout({
       // Add font variables so they'll be available for Tailwind CSS
       className={cn(inter.variable, raleway.variable)}
     >
-      <body className="font-body text-foreground min-h-screen">
+      <body className="font-body min-h-screen">
         <main id="main">{children}</main>
       </body>
     </html>

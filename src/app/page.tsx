@@ -42,17 +42,12 @@ export default function Home() {
         <div className="flex flex-col gap-2 text-center pb-8">
           {/* Title and description section */}
           <Typography
-            style={{
-              background: "linear-gradient(to right, #602C1B, #FCB69F)", // Gradient background for text
-              WebkitBackgroundClip: "text", // Ensures the gradient is clipped to the text
-              color: "transparent", // Makes the text itself transparent to show the gradient
-            }}
             variant={"h1"} // Variant for the Typography component (heading level 1)
           >
             TEKORA WALLET
           </Typography>
           {/* Subtitle or description */}
-          <Typography className="text-primary-foreground text-center">
+          <Typography className="text-center">
             The Tekora Wallet is your secure hub for storing, managing, and
             trading exclusive Tekora NFTs. Unlock limited-edition digital cards,
             rare collectibles, and exclusive in-game perks available only to
@@ -60,7 +55,7 @@ export default function Home() {
             master the world of Tekora.
           </Typography>
           <Typography
-            className="text-primary-foreground text-center"
+            className="text-center"
             variant={"h6"} // Variant for the Typography component (heading level 1)
           >
             For the best experience, use a mobile browser.

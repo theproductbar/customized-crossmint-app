@@ -74,7 +74,7 @@ export const Header: React.FC = () => {
 // Header logo component
 const HeaderLogo: React.FC = () => (
   <Link href="/" className="justify-center items-center flex">
-    <div className="w-36 sm:w-60">
+    <div className="w-44 sm:w-64">
       <img
         className=""
         src={
