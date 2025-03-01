@@ -35,7 +35,7 @@ export default async function RootLayout({
       // Add font variables so they'll be available for Tailwind CSS
       className={cn(inter.variable, raleway.variable)}
     >
-      <body className="bg-background font-body text-foreground min-h-screen antialiased">
+      <body className="font-body text-foreground min-h-screen">
         <main id="main">{children}</main>
       </body>
     </html>
