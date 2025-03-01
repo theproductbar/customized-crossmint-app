@@ -22,7 +22,7 @@ export function Providers({ children }: { children: ReactNode }) {
           embeddedWallets={{
             createOnLogin: "all-users", // Ensures wallet creation on login
             type: "evm-smart-wallet", // Uses EVM smart wallet
-            defaultChain: "polygon-amoy", // Default blockchain
+            defaultChain: "polygon", // Default blockchain
           }}
           appearance={{
             borderRadius: "16px",

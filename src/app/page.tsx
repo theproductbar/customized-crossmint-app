@@ -24,7 +24,7 @@ function HomePrimaryAction() {
       >
         <Link href="/wallet">
           <Typography className="text-[#00150D] font-semibold text-[17px]">
-            Collections
+            Collection
           </Typography>
         </Link>
       </Button>
@@ -42,19 +42,23 @@ export default function Home() {
         <div className="flex flex-col gap-2 text-center pb-8">
           {/* Title and description section */}
           <Typography
-            style={{
-              background: "linear-gradient(to right, #602C1B, #FCB69F)", // Gradient background for text
-              WebkitBackgroundClip: "text", // Ensures the gradient is clipped to the text
-              color: "transparent", // Makes the text itself transparent to show the gradient
-            }}
             variant={"h1"} // Variant for the Typography component (heading level 1)
           >
-            LagunnaGames
+            TEKORA WALLET
           </Typography>
           {/* Subtitle or description */}
-          <Typography className="text-primary-foreground text-center">
-            Create a wallet and mint a token, just using Face ID. No passphrase,
-            transaction prompts, or gas fees required
+          <Typography className="text-center">
+            The Tekora Wallet is your secure hub for storing, managing, and
+            trading exclusive Tekora NFTs. Unlock limited-edition digital cards,
+            rare collectibles, and exclusive in-game perks available only to
+            members. Take control of your collection, shape the future, and
+            master the world of Tekora.
+          </Typography>
+          <Typography
+            className="text-center"
+            variant={"h6"} // Variant for the Typography component (heading level 1)
+          >
+            For the best experience, use a mobile browser.
           </Typography>
         </div>
 
@@ -65,19 +69,11 @@ export default function Home() {
             {/* NFT image with styling */}
             <img
               className="rounded-xl rounded-bl-none rounded-br-none"
-              src={"/emoji-nft.png"} // Path to the NFT image
+              src={
+                "https://playtekora.com/wp-content/uploads/2025/03/Wallet-Front-.png"
+              } // Path to the NFT image
               alt="nft" // Alt text for accessibility
             />
-            <div className="py-4">
-              {/* NFT Title */}
-              <Typography className="text-secondary-foreground" variant="h3">
-                Letterpress Pebble
-              </Typography>
-              {/* NFT Creator */}
-              <Typography className="text-muted-foreground" variant="h5">
-                by Crypto Angel
-              </Typography>
-            </div>
           </div>
           {/* Render the HomePrimaryAction component to handle the wallet and minting logic */}
           <HomePrimaryAction />

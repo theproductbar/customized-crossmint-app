@@ -74,7 +74,15 @@ export const Header: React.FC = () => {
 // Header logo component
 const HeaderLogo: React.FC = () => (
   <Link href="/" className="justify-center items-center flex">
-    <div className="font-bold text-3xl">Wallet</div>
+    <div className="w-44 sm:w-64">
+      <img
+        className=""
+        src={
+          "https://playtekora.com/wp-content/uploads/2025/03/tekora-wallet-logo.png"
+        } // Path to the NFT image
+        alt="nft" // Alt text for accessibility
+      />
+    </div>
   </Link>
 );
 
@@ -119,14 +127,14 @@ const UserMenu: React.FC<{
           </Typography>
           <Copy className="h-5 w-5" /> {/* Copy icon */}
         </div>
-        {/* Link to assets page */}
+        {/* Link to Collection page */}
         <Link
           href="/wallet"
           prefetch={false}
           className="text-secondary-foreground flex gap-3 py-2"
         >
-          <ImageIcon className="h-5 w-5" /> {/* Image icon for assets */}
-          <Typography>Assets</Typography>
+          <ImageIcon className="h-5 w-5" /> {/* Image icon for Collection */}
+          <Typography>Collection</Typography>
         </Link>
         {/* Logout option */}
         <div
