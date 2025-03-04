@@ -44,7 +44,7 @@ export default function Home() {
           <Typography
             variant={"h1"} // Variant for the Typography component (heading level 1)
           >
-            TEKORA WALLET
+            TEKORA CLUB
           </Typography>
           {/* Subtitle or description */}
           <Typography className="text-center">
