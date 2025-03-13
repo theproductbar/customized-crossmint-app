@@ -5,9 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
 import { Typography } from "@/components/typography";
 import { useQuery } from "@tanstack/react-query";
 
-import { Image, Globe, LogOut } from "lucide-react";
-import { useWallet, useAuth } from "@crossmint/client-sdk-react-ui";
-import Link from "next/link";
+import { useWallet } from "@crossmint/client-sdk-react-ui";
 
 type NFT = {
   chain: string;
@@ -29,7 +27,7 @@ const SkeletonLoader = () => {
   return (
     <div className="p-6 flex h-full w-full items-center  gap-6 justify-center flex-col">
       <div className="w-full flex-col sm:max-w-[418px] bg-card rounded-2xl shadow-dropdown min-h-[560px] p-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-x-4 gap-y-8 pb-6">
+               <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-x-4 gap-y-8 pb-6">
           <div className="w-full sm:w-auto flex flex-col gap-4">
             <Skeleton className="w-full h-40 sm:w-40 rounded-[10px]" />
             <Skeleton className="h-4 w-24" />
@@ -53,8 +51,8 @@ const SkeletonLoader = () => {
 };
 
 export default function Index() {
-  const { logout } = useAuth();
   const { wallet, status: walletStatus } = useWallet();
+
   const { data, isLoading: isLoadingNFTs } = useQuery({
     queryKey: ["smart-wallet"],
     queryFn: async () => (wallet != null ? await wallet.nfts() : []) as NFT[],
@@ -71,7 +69,7 @@ export default function Index() {
   return (
     <div className="p-6 flex h-full w-full items-center pt-6 gap-6 justify-center flex-col">
       <div className="w-full flex-col sm:max-w-[418px] bg-card rounded-2xl shadow-dropdown min-h-[664px] p-6">
-        <Tabs defaultValue="collectibles" className="my-2">
+            <Tabs defaultValue="collectibles" className="my-2">
           <TabsList className="grid w-full">
             <TabsTrigger value="collectibles">Collectibles</TabsTrigger>
           </TabsList>
@@ -109,26 +107,6 @@ export default function Index() {
             )}
           </TabsContent>
         </Tabs>
-        <div className="flex justify-around">
-          <Link href="/wallet">
-            <div className="flex flex-col items-center">
-              <Image size={32} />
-              <div>Collection</div>
-            </div>
-          </Link>
-          <Link href="https://playtekora.com" passHref>
-            <div className="flex flex-col items-center">
-              <Globe size={32} />
-              <div>Go To</div>
-            </div>
-          </Link>
-          <Link href="/" onClick={logout}>
-            <div className="flex flex-col items-center">
-              <LogOut size={32} />
-              <div>Sign Out</div>
-            </div>
-          </Link>
-        </div>
       </div>
     </div>
   );
