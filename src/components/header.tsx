@@ -137,12 +137,15 @@ const UserMenu: React.FC<{
           <Typography>Collection</Typography>
         </Link>
          {/* Go to */}
-        <Link href="https://playtekora.com" passHref>
-          <div className="flex gap-3 py-2 items-center">
+        <a
+          href="https://playtekora.com"
+            className="flex flex-col items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Globe size={32} />
             <Typography>Go To</Typography>
-          </div>
-        </Link>
+        </a>
         {/* Logout option */}
         <div
           className="flex gap-3 py-2 items-center"
