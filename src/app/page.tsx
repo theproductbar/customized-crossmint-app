@@ -7,32 +7,15 @@ import Link from "next/link"; // Next.js Link component for navigation
 
 // Importing useWallet hook from the Crossmint SDK for wallet management
 import { useWallet } from "@crossmint/client-sdk-react-ui";
-import { Button } from "@/components/button";
-
-// Main component for handling the primary action (minting NFT or signing in)
-function HomePrimaryAction() {
-  const { status: walletStatus } = useWallet(); // Destructuring wallet status from the useWallet hook
-
-  // If wallet is not loaded (user not signed in), show the sign-in button
-  if (walletStatus !== "loaded") {
-    return <SignInAuthButton />; // Button for signing in with a wallet
-  } else {
-    return (
-      <Button
-        className="bg-card gap-[10px] shadow-light rounded-xl py-3" // Styling for the button
-      >
-        <Link href="/wallet">
-          <Typography className="text-[#00150D] font-semibold text-[17px]">
-            Collection
-          </Typography>
-        </Link>
-      </Button>
-    );
-  }
-}
-
+import { useRouter } from "next/navigation";
 // Main Home component to render the page
 export default function Home() {
+  const router = useRouter();
+  const { status: walletStatus } = useWallet();
+  if (walletStatus === "loaded") {
+    router.push("/wallet");
+  }
+
   return (
     <div className="flex h-full w-full items-center md:p-4 justify-center">
       {/* Main container div, centered horizontally and vertically */}
@@ -75,7 +58,7 @@ export default function Home() {
             />
           </div>
           {/* Render the HomePrimaryAction component to handle the wallet and minting logic */}
-          <HomePrimaryAction />
+          <SignInAuthButton />
         </div>
       </div>
     </div>
