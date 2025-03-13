@@ -3,7 +3,7 @@
 // Importing various components, icons, and hooks
 import { Logo, MobileLogo } from "@/icons/logo"; // Logo components (custom icons)
 import { LogoutIcon } from "@/icons/logout"; // Logout icon
-import { Copy, Image as ImageIcon, User, WalletMinimal } from "lucide-react"; // Importing icons from the lucide-react library
+import { Copy, Image, Globe, User,LogOut, WalletMinimal } from "lucide-react"; // Importing icons from the lucide-react library
 import Link from "next/link"; // Next.js Link component for navigation
 import { useRouter } from "next/navigation"; // Router hook to programmatically navigate
 
@@ -131,18 +131,25 @@ const UserMenu: React.FC<{
         <Link
           href="/wallet"
           prefetch={false}
-          className="text-secondary-foreground flex gap-3 py-2"
+          className="flex gap-3 py-2 items-center"
         >
-          <ImageIcon className="h-5 w-5" /> {/* Image icon for Collection */}
+          <Image size={32} /> {/* Image icon for Collection */}
           <Typography>Collection</Typography>
+        </Link>
+         {/* Go to */}
+        <Link href="https://playtekora.com" passHref>
+          <div className="flex gap-3 py-2 items-center">
+            <Globe size={32} />
+            <Typography>Go To</Typography>
+          </div>
         </Link>
         {/* Logout option */}
         <div
-          className="text-secondary-foreground flex gap-3 py-2 cursor-pointer"
+          className="flex gap-3 py-2 items-center"
           onClick={onLogout}
         >
-          <LogoutIcon className="h-5 w-5" /> {/* Logout icon */}
-          <Typography>Logout</Typography>
+             <LogOut size={32} /> {/* Logout icon */}
+             <Typography>Sign Out</Typography>
         </div>
       </div>
     </DropdownMenuContent>
