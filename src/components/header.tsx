@@ -139,7 +139,7 @@ const UserMenu: React.FC<{
          {/* Go to */}
         <a
           href="https://playtekora.com"
-            className="flex flex-col items-center"
+            className="flex gap-3 py-2 items-center"
             target="_blank"
             rel="noopener noreferrer"
           >
