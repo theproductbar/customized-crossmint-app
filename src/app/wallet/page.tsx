@@ -4,8 +4,9 @@ import { Skeleton } from "@/components/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
 import { Typography } from "@/components/typography";
 import { useQuery } from "@tanstack/react-query";
-
-import { useWallet } from "@crossmint/client-sdk-react-ui";
+import { Image, Globe, LogOut } from "lucide-react";
+import { useWallet, useAuth } from "@crossmint/client-sdk-react-ui";
+import Link from "next/link";
 
 type NFT = {
   chain: string;
@@ -51,6 +52,7 @@ const SkeletonLoader = () => {
 };
 
 export default function Index() {
+  const { logout } = useAuth();
   const { wallet, status: walletStatus } = useWallet();
 
   const { data, isLoading: isLoadingNFTs } = useQuery({
@@ -107,6 +109,26 @@ export default function Index() {
             )}
           </TabsContent>
         </Tabs>
+        <div className="flex justify-around">
+          <Link href="/wallet">
+            <div className="flex flex-col items-center">
+              <Image size={32} />
+              <div>Collection</div>
+            </div>
+          </Link>
+          <Link href="https://playtekora.com" passHref>
+            <div className="flex flex-col items-center">
+              <Globe size={32} />
+              <div>Go To</div>
+            </div>
+          </Link>
+          <Link href="/" onClick={logout}>
+            <div className="flex flex-col items-center">
+              <LogOut size={32} />
+              <div>Sign Out</div>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );
