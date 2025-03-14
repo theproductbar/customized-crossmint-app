@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
 import { Typography } from "@/components/typography";
 import { useQuery } from "@tanstack/react-query";
-import { useWallet } from "@crossmint/client-sdk-react-ui";
+import { useWallet, useAuth  } from "@crossmint/client-sdk-react-ui";
 
 type NFT = {
   chain: string;
@@ -51,16 +51,36 @@ const SkeletonLoader = () => {
 
 export default function Index() {
   const { wallet, status: walletStatus } = useWallet();
-
+  const { user } = useAuth ();
+const chain = "polygon-amoy"
+const fetchNFTs = async (user:any) => {
+  try {
+      const walletLocator = encodeURIComponent(`email:${(user?.email)}:${chain}`)
+      const response = await fetch(
+        `https://staging.crossmint.com/api/2022-06-09/wallets/${walletLocator}/nfts?page=1&perPage=20`,
+        {
+          method: "GET",
+          headers: {
+            'X-API-KEY': `${process.env.NEXT_PUBLIC_CROSSMINT_AUTH_SMART_WALLET_SERVER_API_KEY ?? ""}`
+          },
+        }
+      );
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      console.log(err.message);
+    } 
+  }
+ 
   const { data, isLoading: isLoadingNFTs } = useQuery({
     queryKey: ["smart-wallet"],
-    queryFn: async () => (wallet != null ? await wallet.nfts() : []) as NFT[],
+    queryFn: async () => (wallet != null ? await fetchNFTs(user) : []) as NFT[],
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     staleTime: 1000 * 60 * 5, // 5 minutes
     enabled: wallet != null,
   });
-
+  
   if (walletStatus === "in-progress" || isLoadingNFTs) {
     return <SkeletonLoader />;
   }
@@ -110,3 +130,5 @@ export default function Index() {
     </div>
   );
 }
+
+
