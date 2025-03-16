@@ -19,10 +19,11 @@ export function Providers({ children }: { children: ReactNode }) {
         }
       >
         <CrossmintAuthProvider
+          authModalTitle="Sign in to Tekora Club"
           embeddedWallets={{
             createOnLogin: "all-users", // Ensures wallet creation on login
             type: "evm-smart-wallet", // Uses EVM smart wallet
-            defaultChain: "polygon-amoy", // Default blockchain
+            defaultChain: "polygon", // Default blockchain
           }}
           appearance={{
             borderRadius: "16px",
@@ -36,8 +37,10 @@ export function Providers({ children }: { children: ReactNode }) {
               danger: "#ff3333",
               accent: "#602C1B",
             },
+           
           }}
           loginMethods={["email", "google"]} // Only email and Google login allowed
+          
         >
           {children}
         </CrossmintAuthProvider>
