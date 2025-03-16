@@ -52,12 +52,12 @@ const SkeletonLoader = () => {
 export default function Index() {
   const { wallet, status: walletStatus } = useWallet();
   const { user } = useAuth ();
-const chain = "polygon-amoy"
+const chain = "polygon"
 const fetchNFTs = async (user:any) => {
   try {
       const walletLocator = encodeURIComponent(`email:${(user?.email)}:${chain}`)
       const response = await fetch(
-        `https://staging.crossmint.com/api/2022-06-09/wallets/${walletLocator}/nfts?page=1&perPage=20`,
+        `https://www.crossmint.com/api/2022-06-09/wallets/${walletLocator}/nfts?page=1&perPage=20`,
         {
           method: "GET",
           headers: {
