@@ -3,7 +3,11 @@
 import { CrossmintNFTDetail } from "@crossmint/client-sdk-react-ui";
 import { CircleArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { useEffect } from "react";
 export default function Index({ params }: { params: { locator: string } }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden"; // Ensure only body scrolls
+  }, []);
   const nftData = params.locator?.split("%3A");
   return (
     <div className="h-[800px] p-4 flex flex-col">
