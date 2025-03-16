@@ -3,7 +3,6 @@
 // Importing components and hooks from other files or libraries
 import { SignInAuthButton } from "@/components/signin-auth-button"; // Button for signing in with authentication
 import { Typography } from "@/components/typography"; // Custom typography component
-import Link from "next/link"; // Next.js Link component for navigation
 
 // Importing useWallet hook from the Crossmint SDK for wallet management
 import { useWallet } from "@crossmint/client-sdk-react-ui";

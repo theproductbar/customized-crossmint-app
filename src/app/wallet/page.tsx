@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
 import { Typography } from "@/components/typography";
 import { useQuery } from "@tanstack/react-query";
 import { useWallet, useAuth  } from "@crossmint/client-sdk-react-ui";
+import Link from "next/link";
 
 type NFT = {
   chain: string;
@@ -52,9 +53,13 @@ const SkeletonLoader = () => {
 export default function Index() {
   const { wallet, status: walletStatus } = useWallet();
   const { user } = useAuth ();
-const chain = "polygon"
-const fetchNFTs = async (user:any) => {
-  try {
+  const  shortenAddress = (address:string) => {
+    if (!address || address.length < 10) return address; // Handle invalid input
+    return `${address.slice(0, 8)}...${address.slice(-6)}`;
+  }
+  const chain = "polygon"
+  const fetchNFTs = async (user:any) => {
+    try {
       const walletLocator = encodeURIComponent(`email:${(user?.email)}:${chain}`)
       const response = await fetch(
         `https://www.crossmint.com/api/2022-06-09/wallets/${walletLocator}/nfts?page=1&perPage=20`,
@@ -71,7 +76,7 @@ const fetchNFTs = async (user:any) => {
       console.log(err.message);
     } 
   }
- 
+
   const { data, isLoading: isLoadingNFTs } = useQuery({
     queryKey: ["smart-wallet"],
     queryFn: async () => (wallet != null ? await fetchNFTs(user) : []) as NFT[],
@@ -81,6 +86,7 @@ const fetchNFTs = async (user:any) => {
     enabled: wallet != null,
   });
   
+
   if (walletStatus === "in-progress" || isLoadingNFTs) {
     return <SkeletonLoader />;
   }
@@ -94,7 +100,7 @@ const fetchNFTs = async (user:any) => {
           </TabsList>
           <TabsContent
             value="collectibles"
-            className="h-[420px] overflow-y-auto"
+            className="h-[580px] overflow-y-auto"
           >
             {data?.length === 0 ? (
               <Typography className="text-base text-primary-foreground p-4">
@@ -103,12 +109,13 @@ const fetchNFTs = async (user:any) => {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-x-4 gap-y-8 py-6">
                 {(data || []).map((nft) => (
-                  <div
+                  <Link
+                    href={`/wallet/${nft.locator}`}
                     className="flex flex-col gap-4"
                     key={nft.tokenId + nft.contractAddress}
-                  >
+                  > 
                     <img
-                      className="rounded-[10px] max-w-full sm:max-w-[164px]"
+                      className="rounded-[10px] max-w-full sm:max-w-[164px] aspect-square overflow-hidden object-cover"
                       src={nft.metadata.image}
                       alt={nft.metadata.description}
                     />
@@ -117,10 +124,10 @@ const fetchNFTs = async (user:any) => {
                         {nft.metadata.name}
                       </Typography>
                       <Typography className="text-sm text-muted">
-                        {nft.metadata.description}
+                        {shortenAddress(nft.contractAddress)}
                       </Typography>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             )}
