@@ -25,8 +25,6 @@ export default function Template({ children }: { children: ReactNode }) {
     <Providers>
       {/* Header component, typically used to display the website's navigation bar or title */}
       <Header />
-      {/* Toaster component, probably used to display toast notifications to the user */}
-      <Toaster />
       {/* Rendering children (the actual content passed to this Template) */}
       {children}
     </Providers>

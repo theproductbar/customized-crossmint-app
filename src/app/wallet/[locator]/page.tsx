@@ -10,7 +10,7 @@ export default function Index({ params }: { params: { locator: string } }) {
   }, []);
   const nftData = params.locator?.split("%3A");
   return (
-    <div className="h-[800px] p-4 flex flex-col">
+    <div className="h-[600px] p-4 flex flex-col">
       <Link className="flex" href="/wallet">
         <div className="flex gap-2 p-2 mb-4 rounded-xl hover:bg-gray-100 hover:text-red-500">
           <CircleArrowLeft /> My Collection
