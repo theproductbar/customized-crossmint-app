@@ -116,7 +116,7 @@ export default function Index({ params }: { params: { locator: string } }) {
     staleTime: 1000 * 60 * 5, // 5 minutes
     enabled: wallet != null,
   });
-
+  console.log("____________data_____________", data);
   if (walletStatus === "in-progress" || isLoadingNFTs) {
     return <SkeletonLoader />;
   }
