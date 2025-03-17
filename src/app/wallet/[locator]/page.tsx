@@ -99,10 +99,15 @@ export default function Index({ params }: { params: { locator: string } }) {
           },
         }
       );
-      const data = await response.json();
-      const nft = data.find(
+      const nfts = await response.json();
+      const nft = nfts.find(
         (n) => n.locator === decodeURIComponent(params.locator)
       );
+      console.log(
+        "n.locator === decodeURIComponent(params.locator)",
+        decodeURIComponent(params.locator)
+      );
+      console.log("nft", nft);
       return nft;
     } catch (err) {
       console.log(err.message);
